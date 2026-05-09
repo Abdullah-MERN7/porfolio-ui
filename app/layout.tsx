@@ -96,7 +96,7 @@ const THEME_SCRIPT = `
         coral: '#FF6B6B',
         crimson: '#D62828',
         amber: '#FF8E3C',
-        sunny: '#FFD166',
+        sunny: '#FFC107',
         lime: '#8AC926',
         seaglass: '#06D6A0',
         teal: '#2A9D8F',

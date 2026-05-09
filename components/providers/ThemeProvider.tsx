@@ -35,7 +35,7 @@ type ThemeContextValue = {
 const ACCENT_OPTIONS: AccentOption[] = [
   { id: "coral", label: "Warm Coral", value: "#FF6B6B" },
   { id: "crimson", label: "Crimson Pulse", value: "#D62828" },
-  { id: "amber", label: "Sunset Amber", value: "#FF8E3C" },
+  { id: "amber", label: "Sunset Amber", value: "#FFC107" },
   { id: "Soft-Mocha", label: "Soft Mocha", value: "#78716C" },
   { id: "lime", label: "Lime Zest", value: "#8AC926" },
   { id: "seaglass", label: "Mint Seaglass", value: "#06D6A0" },
