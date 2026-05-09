@@ -16,8 +16,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       id="projects"
       className="mx-auto mt-[var(--section-gap)] w-full max-w-6xl px-4"
     >
-      <div className="mb-8 flex items-center justify-between gap-4">
-        <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+      <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           Projects
         </h2>
         <span className="text-sm text-[color:var(--color-muted)]">

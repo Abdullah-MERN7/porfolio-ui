@@ -99,77 +99,63 @@ export function AccentPaletteSelector() {
       </button>
       <AnimatePresence>
         {open && (
-          <>
-            {isMobile && (
-              <motion.div
-                className="palette-overlay"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.55 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                aria-hidden="true"
-              />
+          <motion.div
+            className={clsx(
+              "palette-popover",
+              isMobile ? "palette-popover--inline" : "palette-popover--desktop"
             )}
-            <motion.div
-              className={clsx(
-                "palette-popover",
-                isMobile ? "palette-popover--mobile" : "palette-popover--desktop"
-              )}
-              role="dialog"
-              aria-label="Choose accent colour"
-              initial={{ opacity: 0, y: isMobile ? 24 : 8, scale: isMobile ? 1 : 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: isMobile ? 24 : 4, scale: isMobile ? 1 : 0.98 }}
-              transition={{ duration: 0.18, ease: "easeOut" }}
-            >
-              <div className="palette-popover__header">
-                <span className="palette-popover__title">Accent colour</span>
-                <button
-                  type="button"
-                  className="palette-popover__close"
-                  onClick={() => setOpen(false)}
-                  aria-label="Close accent colour menu"
-                >
-                  X
-                </button>
-              </div>
-              <div className="palette-grid">
-                {accentOptions.map((option) => {
-                  const isActive = option.id === accentId;
-                  return (
-                    <motion.button
-                      key={option.id}
-                      type="button"
-                      className={clsx(
-                        "palette-swatch",
-                        isActive && "palette-swatch--active",
-                        "palette-swatch--interactive"
-                      )}
-                      role="radio"
-                      aria-label={`Accent colour: ${option.label}`}
-                      aria-checked={isActive}
-                      title={option.label}
-                      style={{ backgroundColor: option.value }}
-                      onClick={() => {
-                        setAccent(option.id);
-                        if (isMobile) {
-                          setOpen(false);
-                        }
-                      }}
-                      whileHover={{ scale: isMobile ? 1 : 1.08 }}
-                      whileTap={{ scale: 0.92 }}
-                      transition={{ type: "spring", stiffness: 320, damping: 25 }}
-                    >
-                      <span className="sr-only">{option.label}</span>
-                      <span className="palette-swatch__indicator" aria-hidden="true">
-                        ?
-                      </span>
-                    </motion.button>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </>
+            role="dialog"
+            aria-label="Choose accent colour"
+            initial={{ opacity: 0, y: isMobile ? 0 : 8, scale: isMobile ? 1 : 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: isMobile ? 0 : 4, scale: isMobile ? 1 : 0.98 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+          >
+            <div className="palette-popover__header">
+              <span className="palette-popover__title">Accent colour</span>
+              <button
+                type="button"
+                className="palette-popover__close"
+                onClick={() => setOpen(false)}
+                aria-label="Close accent colour menu"
+              >
+                X
+              </button>
+            </div>
+            <div className="palette-grid">
+              {accentOptions.map((option) => {
+                const isActive = option.id === accentId;
+                return (
+                  <motion.button
+                    key={option.id}
+                    type="button"
+                    className={clsx(
+                      "palette-swatch",
+                      isActive && "palette-swatch--active",
+                      "palette-swatch--interactive"
+                    )}
+                    role="radio"
+                    aria-label={`Accent colour: ${option.label}`}
+                    aria-checked={isActive}
+                    title={option.label}
+                    style={{ backgroundColor: option.value }}
+                    onClick={() => {
+                      setAccent(option.id);
+                      if (isMobile) {
+                        setOpen(false);
+                      }
+                    }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.92 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 25 }}
+                  >
+                    <span className="sr-only">{option.label}</span>
+                    <span className="palette-swatch__indicator" aria-hidden="true" />
+                  </motion.button>
+                );
+              })}
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

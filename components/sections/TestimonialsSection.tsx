@@ -40,7 +40,7 @@ export function TestimonialsSection() {
         className="mb-10 text-center animate-fade-in"
       >
         <span className="badge-accent">Testimonials</span>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           Teams that trust the craft
         </h2>
         <p className="mt-3 text-base text-[color:var(--color-muted)]">

@@ -28,8 +28,8 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
       id="skills"
       className="mx-auto mt-[var(--section-gap)] w-full max-w-5xl px-4"
     >
-      <div className="mb-8 flex items-center justify-between animate-fade-in">
-        <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+      <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
+        <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           Skills
         </h2>
         <span className="text-sm text-[color:var(--color-muted)]">
@@ -54,7 +54,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
                 {categorySkills.map((skill) => (
                   <span
                     key={skill._id}
-                    className="rounded-full border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[color:var(--color-accent)]"
+                    className="skill-tag rounded-full border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-medium uppercase tracking-wide"
                   >
                     {skill.name}
                   </span>

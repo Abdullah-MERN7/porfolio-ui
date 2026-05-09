@@ -43,7 +43,7 @@ export function CertificationsSection({ certifications }: CertificationsSectionP
     >
       <div className="mb-8 flex flex-col gap-3 text-center md:flex-row md:items-end md:justify-between md:text-left">
         <div className="space-y-2" suppressHydrationWarning>
-          <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+          <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
             Certifications
           </h2>
           <p className="text-sm text-[color:var(--color-muted)]">
@@ -81,7 +81,7 @@ export function CertificationsSection({ certifications }: CertificationsSectionP
                   <h3 className="text-lg font-semibold text-[color:var(--color-foreground)]">
                     {certification.title}
                   </h3>
-                  <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-accent)]">
+                  <span className="skill-tag rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold shrink-0">
                     {formatRange(certification.startDate, certification.endDate)}
                   </span>
                 </div>

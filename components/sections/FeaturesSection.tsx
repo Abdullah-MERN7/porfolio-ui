@@ -36,7 +36,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
         className="mb-10 max-w-2xl animate-slide-in"
       >
         <span className="badge-accent">What I bring</span>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           End-to-end product partnership
         </h2>
         <p className="mt-3 text-base text-[color:var(--color-muted)]">
@@ -57,7 +57,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
               transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
               className="surface-card card-hover rounded-3xl p-6 animate-scale-up"
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] text-[color:var(--color-accent)] animate-flip-3d">
+              <div className="accent-icon mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] animate-flip-3d">
                 <Icon size={24} />
               </div>
               <h3 className="text-xl font-semibold text-[color:var(--color-foreground)]">

@@ -44,7 +44,7 @@ const ACCENT_OPTIONS: AccentOption[] = [
   { id: "azure", label: "Azure Bay", value: "#1B9AAA" },
   { id: "indigo", label: "Royal Indigo", value: "#4361EE" },
   { id: "violet", label: "Electric Violet", value: "#7F5AF0" },
-  { id: "magenta", label: "Vivid Magenta", value: "#F15BB5" },
+  { id: "yellow", label: "Golden Yellow", value: "#FFD700" },
 ];
 
 const ACCENT_LOOKUP = new Map(ACCENT_OPTIONS.map((option) => [option.id, option]));

@@ -20,8 +20,8 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
       id="experience"
       className="mx-auto mt-[var(--section-gap)] w-full max-w-5xl px-4"
     >
-      <div className="mb-8 flex items-center justify-between animate-fade-in">
-        <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+      <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
+        <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           Experience
         </h2>
         <span className="text-sm text-[color:var(--color-muted)]">
@@ -29,8 +29,8 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
         </span>
       </div>
       {sorted.length ? (
-        <div className="relative pl-6">
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-[color:var(--color-accent-soft-strong)] via-[color:var(--color-surface-border)] to-transparent" />
+        <div className="relative pl-4 sm:pl-6">
+          <div className="absolute left-2 sm:left-3 top-0 bottom-0 w-px bg-gradient-to-b from-[color:var(--color-accent-soft-strong)] via-[color:var(--color-surface-border)] to-transparent" />
           <div className="space-y-8">
             {sorted.map((item, index) => (
               <motion.div
@@ -41,7 +41,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
                 viewport={{ once: true, amount: 0.2 }}
                 className="surface-card card-hover relative rounded-2xl p-6 animate-slide-in"
               >
-                <span className="absolute -left-[26px] top-6 flex h-4 w-4 items-center justify-center rounded-full border-2 border-[color:var(--color-background)] bg-[color:var(--color-accent)]" />
+                <span className="absolute -left-[22px] sm:-left-[26px] top-6 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full border-2 border-[color:var(--color-background)] bg-[color:var(--color-accent)]" />
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <h3 className="text-lg font-semibold text-[color:var(--color-foreground)]">

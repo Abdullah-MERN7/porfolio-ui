@@ -24,7 +24,7 @@ export function AboutSection({ content }: AboutSectionProps) {
         viewport={{ once: true, amount: 0.4 }}
         className="space-y-4 animate-slide-in"
       >
-        <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+        <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           {about.heading}
         </h2>
         {about.paragraphs?.map((paragraph, index) => (

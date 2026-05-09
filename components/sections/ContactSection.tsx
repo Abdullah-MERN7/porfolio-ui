@@ -54,7 +54,7 @@ export function ContactSection() {
       className="mx-auto mt-[var(--section-gap)] w-full max-w-4xl px-4"
     >
       <div className="mb-8 animate-fade-in" suppressHydrationWarning>
-        <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+        <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-3xl">
           Contact
         </h2>
         <p className="mt-2 text-sm text-[color:var(--color-muted)]">
@@ -67,7 +67,7 @@ export function ContactSection() {
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.5 }}
         onSubmit={handleSubmit}
-        className="surface-strong rounded-3xl p-8 animate-scale-up"
+        className="surface-strong rounded-2xl sm:rounded-3xl p-5 sm:p-8 animate-scale-up"
       >
         <div className="grid gap-6 md:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm text-[color:var(--color-muted)]">

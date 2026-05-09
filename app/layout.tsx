@@ -104,7 +104,7 @@ const THEME_SCRIPT = `
         azure: '#1B9AAA',
         indigo: '#4361EE',
         violet: '#7F5AF0',
-        magenta: '#F15BB5'
+        yellow: '#FFD700'
       };
       var accentId = localStorage.getItem(accentKey);
       if (!accentId || !accentPalette[accentId]) {

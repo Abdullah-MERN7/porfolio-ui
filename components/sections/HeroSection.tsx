@@ -363,13 +363,13 @@ export function HeroSection({ content }: HeroSectionProps) {
         <div className="hero-overlay" />
       </motion.div>
 
-      <motion.div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col gap-12 px-4" variants={textStackVariants}>
+      <motion.div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col gap-8 sm:gap-12 px-4 sm:px-6" variants={textStackVariants}>
         <motion.span className="badge-accent" variants={subheadingVariants}>
           {hero.badge}
         </motion.span>
 
         <motion.h1
-          className="hero-heading text-4xl font-bold leading-tight tracking-tight text-[color:var(--color-foreground)] sm:text-5xl md:text-6xl"
+          className="hero-heading text-3xl font-bold leading-tight tracking-tight text-[color:var(--color-foreground)] sm:text-4xl md:text-5xl lg:text-6xl"
           variants={headingVariants}
         >
           {words.map((word, index) => (
@@ -380,7 +380,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           ))}
         </motion.h1>
 
-        <motion.p className="max-w-2xl text-lg text-[color:var(--color-muted)]" variants={bodyVariants}>
+        <motion.p className="max-w-2xl text-base sm:text-lg text-[color:var(--color-muted)]" variants={bodyVariants}>
           {hero.description}
         </motion.p>
 

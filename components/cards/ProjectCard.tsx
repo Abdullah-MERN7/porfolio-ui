@@ -65,7 +65,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="flex flex-col gap-4 p-6">
         <div className="flex items-center gap-2 text-xs text-[color:var(--color-muted)]">
           {project.featured && (
-            <span className="inline-flex items-center rounded-full border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] px-3 py-1 font-semibold text-[color:var(--color-accent)]">
+            <span className="skill-tag inline-flex items-center rounded-full border border-[color:var(--color-accent-outline)] bg-[color:var(--color-accent-soft)] px-3 py-1 font-semibold">
               Featured
             </span>
           )}
