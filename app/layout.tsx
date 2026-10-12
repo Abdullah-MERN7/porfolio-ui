@@ -45,8 +45,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Abdullah Tahir | MERN Stack Developer",
-    template: "%s | Abdullah Tahir",
+    default: "Abdullah MERN | MERN Stack Developer",
+    template: "%s | Abdullah MERN",
   },
   description:
     "Crafting responsive, secure web & mobile apps with React.js, Node.js, Next.js.",
@@ -55,11 +55,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Abdullah Tahir | MERN Stack Developer",
+    title: "Abdullah MERN | MERN Stack Developer",
     description:
       "Crafting responsive, secure web & mobile apps with React.js, Node.js, Next.js.",
     url: siteUrl,
-    siteName: "Abdullah Tahir Portfolio",
+    siteName: "Abdullah MERN Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
         url: "/abd-banner.png",
         width: 1200,
         height: 630,
-        alt: "Abdullah Tahir | MERN Stack Developer",
+        alt: "Abdullah MERN | MERN Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdullah Tahir | MERN Stack Developer",
+    title: "Abdullah MERN | MERN Stack Developer",
     description:
       "Crafting responsive, secure web & mobile apps with React.js, Node.js, Next.js.",
     images: ["/abd-banner.png"],
