@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/abd-banner.png",
+        url: "/abd-banner.jpeg",
         width: 1200,
         height: 630,
         alt: "Abdullah MERN | MERN Stack Developer",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: "Abdullah MERN | MERN Stack Developer",
     description:
       "Crafting responsive, secure web & mobile apps with React.js, Node.js, Next.js.",
-    images: ["/abd-banner.png"],
+    images: ["/abd-banner.jpeg"],
   },
 };
 
