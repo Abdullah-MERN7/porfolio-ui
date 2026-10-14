@@ -7,8 +7,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { fetchFromApi } from "@/src/lib/apiClient";
-import { CACHE_TAGS } from "@/src/lib/cacheTags";
 import {
   getAboutContent,
   getCertifications,
@@ -19,15 +17,18 @@ import {
   getSkills,
 } from "@/src/lib/portfolioService";
 import { ABOUT_CONTENT_FALLBACK, FEATURES_FALLBACK, HERO_CONTENT_FALLBACK } from "@/src/lib/defaultContent";
-import type {
-  AboutContent,
-  Certification,
-  Experience,
-  Feature,
-  HeroContent,
-  Project,
-  Skill,
-} from "@/src/types/portfolio";
+
+function loadOrFallback<T>(
+  label: string,
+  load: Promise<T>,
+  fallback: T
+): Promise<T> {
+  return load.catch((error: unknown) => {
+    console.error(`Failed to load ${label} from the database`, error);
+    return fallback;
+  });
+}
+
 export default async function Home() {
   const [
     skills,
@@ -38,13 +39,13 @@ export default async function Home() {
     aboutContent,
     features,
   ] = await Promise.all([
-    getSkills().catch(() => []),
-    getProjects().catch(() => []),
-    getExperience().catch(() => []),
-    getCertifications().catch(() => []),
-    getHeroContent().catch(() => HERO_CONTENT_FALLBACK),
-    getAboutContent().catch(() => ABOUT_CONTENT_FALLBACK),
-    getFeatures().catch(() => FEATURES_FALLBACK),
+    loadOrFallback("skills", getSkills(), []),
+    loadOrFallback("projects", getProjects(), []),
+    loadOrFallback("experience", getExperience(), []),
+    loadOrFallback("certifications", getCertifications(), []),
+    loadOrFallback("hero content", getHeroContent(), HERO_CONTENT_FALLBACK),
+    loadOrFallback("about content", getAboutContent(), ABOUT_CONTENT_FALLBACK),
+    loadOrFallback("features", getFeatures(), FEATURES_FALLBACK),
   ]);
 
   return (
@@ -61,45 +62,5 @@ export default async function Home() {
     </div>
   );
 }
-
-async function safeFetch<T>(path: string, fallback: T): Promise<T> {
-  const tag =
-    path === "/api/skills"
-      ? CACHE_TAGS.skills
-      : path === "/api/projects"
-        ? CACHE_TAGS.projects
-        : path === "/api/experience"
-          ? CACHE_TAGS.experience
-          : path === "/api/certifications"
-            ? CACHE_TAGS.certifications
-            : path === "/api/hero"
-              ? CACHE_TAGS.hero
-              : path === "/api/about"
-                ? CACHE_TAGS.about
-                : path === "/api/features"
-                  ? CACHE_TAGS.features
-                  : path === "/api/site"
-                    ? CACHE_TAGS.site
-                    : undefined;
-  try {
-    return await fetchFromApi<T>(path, {
-      revalidate: 180,
-      tags: tag ? [tag] : undefined,
-      fallbackData: fallback,
-      suppressError: true,
-    });
-  } catch (error) {
-    console.error(`Failed to load ${path}`, error);
-    return fallback;
-  }
-}
-
-
-
-
-
-
-
-
 
 

@@ -1,4 +1,4 @@
-﻿import { HydratedDocument, InferSchemaType, Schema, model, models } from "mongoose";
+import { HydratedDocument, InferSchemaType, Schema, model, models } from "mongoose";
 
 const HeroContentSchema = new Schema(
   {
@@ -35,6 +35,11 @@ const HeroContentSchema = new Schema(
     secondaryCtaHref: {
       type: String,
       required: true,
+      trim: true,
+    },
+    linkedinHref: {
+      type: String,
+      default: "https://www.linkedin.com/in/abdullah-mern/",
       trim: true,
     },
     palette: {

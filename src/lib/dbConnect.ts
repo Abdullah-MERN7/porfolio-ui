@@ -1,4 +1,12 @@
+import dns from "node:dns";
 import mongoose from "mongoose";
+
+// Use public DNS resolvers to prevent `querySrv ECONNREFUSED` with MongoDB Atlas on Windows/local ISP DNS
+try {
+  dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+} catch {
+  // Ignore in environments where setting DNS servers is restricted
+}
 
 declare global {
   var mongooseConnection: {
@@ -7,14 +15,20 @@ declare global {
   } | undefined;
 }
 
-let MONGODB_URI = process.env.MONGODB_URI || 
-                    process.env["MONGODB_URI "] || 
-                    process.env[" MONGODB_URI"] || 
-                    process.env[" MONGODB_URI "];
+function getMongoUri(): string {
+  const uri =
+    process.env.MONGODB_URI ||
+    process.env["MONGODB_URI "] ||
+    process.env[" MONGODB_URI"] ||
+    process.env[" MONGODB_URI "];
 
-if (MONGODB_URI) {
-  // Remove any accidental leading '=' or whitespace from the value itself
-  MONGODB_URI = MONGODB_URI.trim().replace(/^=/, "").trim();
+  if (!uri) {
+    throw new Error(
+      "Please define the MONGODB_URI environment variable inside .env.local"
+    );
+  }
+
+  return uri.trim().replace(/^=/, "").trim();
 }
 
 const cached = global.mongooseConnection ?? {
@@ -23,13 +37,7 @@ const cached = global.mongooseConnection ?? {
 };
 
 export async function dbConnect() {
-  const uri = MONGODB_URI;
-
-  if (!uri) {
-    throw new Error(
-      "Please define the MONGODB_URI environment variable inside .env.local"
-    );
-  }
+  const uri = getMongoUri();
 
   if (cached.conn) {
     return cached.conn;
@@ -45,8 +53,17 @@ export async function dbConnect() {
       });
   }
 
-  cached.conn = await cached.promise;
+  const connectionPromise = cached.promise;
   global.mongooseConnection = cached;
+
+  try {
+    cached.conn = await connectionPromise;
+  } catch (error) {
+    if (cached.promise === connectionPromise) {
+      cached.promise = null;
+    }
+    throw error;
+  }
 
   return cached.conn;
 }

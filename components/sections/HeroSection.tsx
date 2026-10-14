@@ -10,7 +10,7 @@ import {
   useTransform,
   Variants,
 } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Linkedin } from "lucide-react";
 
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { HERO_CONTENT_FALLBACK } from "@/src/lib/defaultContent";
@@ -281,10 +281,10 @@ export function HeroSection({ content }: HeroSectionProps) {
             prefersReducedMotion
               ? { opacity: 0.32, scale: 1 }
               : {
-                  opacity: [0.24, 0.4, 0.3],
-                  scale: [1.08, 1.12, 1.04, 1.08],
-                  rotate: [-2, 0, -1.5, -2],
-                }
+                opacity: [0.24, 0.4, 0.3],
+                scale: [1.08, 1.12, 1.04, 1.08],
+                rotate: [-2, 0, -1.5, -2],
+              }
           }
           transition={{
             duration: prefersReducedMotion ? 0.7 : 22,
@@ -304,10 +304,10 @@ export function HeroSection({ content }: HeroSectionProps) {
             prefersReducedMotion
               ? { opacity: 0.24, scale: 1 }
               : {
-                  opacity: [0.2, 0.36, 0.26],
-                  scale: [1.05, 1.1, 1.03, 1.05],
-                  rotate: [3, 1, 2.5, 3],
-                }
+                opacity: [0.2, 0.36, 0.26],
+                scale: [1.05, 1.1, 1.03, 1.05],
+                rotate: [3, 1, 2.5, 3],
+              }
           }
           transition={{
             duration: prefersReducedMotion ? 0.7 : 26,
@@ -324,9 +324,9 @@ export function HeroSection({ content }: HeroSectionProps) {
             prefersReducedMotion
               ? undefined
               : {
-                  x: particlesX,
-                  y: particlesY,
-                }
+                x: particlesX,
+                y: particlesY,
+              }
           }
         >
           {floatingParticles.map(({ id, top, left, size, delay, travel }) => (
@@ -344,10 +344,10 @@ export function HeroSection({ content }: HeroSectionProps) {
                 prefersReducedMotion
                   ? { opacity: 0.25, scale: 1 }
                   : {
-                      opacity: [0.12, 0.35, 0.24, 0.28],
-                      y: [0, -travel, 0],
-                      scale: [1, 1.08, 0.96, 1],
-                    }
+                    opacity: [0.12, 0.35, 0.24, 0.28],
+                    y: [0, -travel, 0],
+                    scale: [1, 1.08, 0.96, 1],
+                  }
               }
               transition={{
                 duration: prefersReducedMotion ? 0.6 : 16 + delay * 4,
@@ -392,10 +392,10 @@ export function HeroSection({ content }: HeroSectionProps) {
               prefersReducedMotion
                 ? undefined
                 : {
-                    scale: 1.04,
-                    translateY: -2,
-                    transition: { duration: 0.32, ease: HERO_EASE_SOFT },
-                  }
+                  scale: 1.04,
+                  translateY: -2,
+                  transition: { duration: 0.32, ease: HERO_EASE_SOFT },
+                }
             }
             whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
           >
@@ -406,22 +406,23 @@ export function HeroSection({ content }: HeroSectionProps) {
           </motion.a>
 
           <motion.a variants={ctaVariants}
-            href={hero.secondaryCtaHref || "#contact"}
+            href={hero.linkedinHref || "https://www.linkedin.com/in/abdullah-mern/"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="button-secondary animate-ripple group"
             whileHover={
               prefersReducedMotion
                 ? undefined
                 : {
-                    scale: 1.03,
-                    translateY: -1,
-                    transition: { duration: 0.28, ease: HERO_EASE_SOFT },
-                  }
+                  scale: 1.03,
+                  translateY: -1,
+                  transition: { duration: 0.28, ease: HERO_EASE_SOFT },
+                }
             }
             whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
           >
-            <span>{hero.secondaryCtaLabel}</span>
             <span className="button-icon" aria-hidden="true">
-              <Mail size={16} className="transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
+              <Linkedin size={16} className="transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
             </span>
           </motion.a>
         </motion.div>

@@ -29,7 +29,6 @@ import {
   type ExperiencePayload,
   type FeaturePayload,
   type ProjectPayload,
-  type SiteIdentityPayload,
   type SkillPayload,
 } from "./validators";
 import {
@@ -604,6 +603,7 @@ export async function updateHeroContent(payload: unknown): Promise<HeroContent> 
   if (data.primaryCtaHref !== undefined) updateDoc.primaryCtaHref = data.primaryCtaHref.trim();
   if (data.secondaryCtaLabel !== undefined) updateDoc.secondaryCtaLabel = data.secondaryCtaLabel.trim();
   if (data.secondaryCtaHref !== undefined) updateDoc.secondaryCtaHref = data.secondaryCtaHref.trim();
+  if (data.linkedinHref !== undefined) updateDoc.linkedinHref = data.linkedinHref.trim();
 
   if (data.palette) {
     const paletteUpdate = stripUndefined(data.palette);

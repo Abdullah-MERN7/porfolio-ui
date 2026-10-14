@@ -79,6 +79,7 @@ export type HeroContent = {
   primaryCtaHref: string;
   secondaryCtaLabel: string;
   secondaryCtaHref: string;
+  linkedinHref?: string;
   palette: HeroPalette;
   createdAt: string;
   updatedAt: string;

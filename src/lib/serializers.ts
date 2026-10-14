@@ -125,6 +125,7 @@ export function serializeHeroContent(doc: HeroContentDocument): HeroContent {
     primaryCtaHref: doc.primaryCtaHref,
     secondaryCtaLabel: doc.secondaryCtaLabel,
     secondaryCtaHref: doc.secondaryCtaHref,
+    linkedinHref: (doc as any).linkedinHref ?? "https://www.linkedin.com/in/abdullah-mern/",
     palette: {
       primary: palette.primary ?? DEFAULT_HERO_PALETTE.primary,
       secondary: palette.secondary ?? DEFAULT_HERO_PALETTE.secondary,

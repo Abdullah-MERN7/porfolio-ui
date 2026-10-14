@@ -958,6 +958,7 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
     primaryHref: string;
     secondaryLabel: string;
     secondaryHref: string;
+    linkedinHref: string;
   };
 
   const initialForm: HeroFormState = {
@@ -968,6 +969,7 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
     primaryHref: content.primaryCtaHref,
     secondaryLabel: content.secondaryCtaLabel,
     secondaryHref: content.secondaryCtaHref,
+    linkedinHref: content.linkedinHref || "https://www.linkedin.com/in/abdullah-mern/",
   };
 
   const [form, setForm] = useState<HeroFormState>(initialForm);
@@ -986,6 +988,7 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
       primaryCtaHref: form.primaryHref.trim() || HERO_CONTENT_FALLBACK.primaryCtaHref,
       secondaryCtaLabel: form.secondaryLabel.trim() || HERO_CONTENT_FALLBACK.secondaryCtaLabel,
       secondaryCtaHref: form.secondaryHref.trim() || HERO_CONTENT_FALLBACK.secondaryCtaHref,
+      linkedinHref: form.linkedinHref.trim() || "https://www.linkedin.com/in/abdullah-mern/",
     };
 
     await onSave(trimmed);
@@ -1041,6 +1044,16 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
             onChange={(event) => setForm((prev) => ({ ...prev, secondaryHref: event.target.value }))}
             className={inputClasses}
             placeholder="#contact"
+            disabled={busy}
+          />
+        </label>
+        <label className="flex flex-col">
+          <span className="text-sm font-medium text-[color:var(--color-foreground-secondary)]">LinkedIn link</span>
+          <input
+            value={form.linkedinHref}
+            onChange={(event) => setForm((prev) => ({ ...prev, linkedinHref: event.target.value }))}
+            className={inputClasses}
+            placeholder="https://www.linkedin.com/in/abdullah-mern/"
             disabled={busy}
           />
         </label>

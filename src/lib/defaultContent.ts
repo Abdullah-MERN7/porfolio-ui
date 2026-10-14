@@ -67,6 +67,7 @@ export const HERO_CONTENT_SEED: HeroContentPayload = {
   primaryCtaHref: "#projects",
   secondaryCtaLabel: "Contact Me",
   secondaryCtaHref: "#contact",
+  linkedinHref: "https://www.linkedin.com/in/abdullah-mern/",
   palette: {
     primary: "#F15BB5",
     secondary: "#4361EE",

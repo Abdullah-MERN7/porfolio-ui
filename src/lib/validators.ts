@@ -99,6 +99,7 @@ export const heroContentPayloadSchema = z.object({
   primaryCtaHref: z.string().min(1, "Primary CTA link is required"),
   secondaryCtaLabel: z.string().min(1, "Secondary CTA label is required"),
   secondaryCtaHref: z.string().min(1, "Secondary CTA link is required"),
+  linkedinHref: z.string().optional(),
   palette: heroPaletteSchema.optional(),
 });
 
