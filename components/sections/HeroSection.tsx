@@ -10,7 +10,7 @@ import {
   useTransform,
   Variants,
 } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Linkedin } from "lucide-react";
 
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { HERO_CONTENT_FALLBACK } from "@/src/lib/defaultContent";
@@ -406,7 +406,10 @@ export function HeroSection({ content }: HeroSectionProps) {
           </motion.a>
 
           <motion.a variants={ctaVariants}
-            href={hero.secondaryCtaHref || "#contact"}
+            href={hero.secondaryCtaHref || HERO_CONTENT_FALLBACK.secondaryCtaHref}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit LinkedIn profile"
             className="button-secondary animate-ripple group"
             whileHover={
               prefersReducedMotion
@@ -419,9 +422,8 @@ export function HeroSection({ content }: HeroSectionProps) {
             }
             whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
           >
-            <span>{hero.secondaryCtaLabel}</span>
             <span className="button-icon" aria-hidden="true">
-              <Mail size={16} className="transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
+              <Linkedin size={16} className="transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
             </span>
           </motion.a>
         </motion.div>
@@ -444,8 +446,6 @@ export function HeroSection({ content }: HeroSectionProps) {
     </motion.section>
   );
 }
-
-
 
 
 

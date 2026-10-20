@@ -65,8 +65,8 @@ export const HERO_CONTENT_SEED: HeroContentPayload = {
     "I'm Alex Carter, a product-focused developer crafting immersive and accessible digital products with React, Next.js, and cloud-native tooling.",
   primaryCtaLabel: "View Projects",
   primaryCtaHref: "#projects",
-  secondaryCtaLabel: "Contact Me",
-  secondaryCtaHref: "#contact",
+  secondaryCtaLabel: "LinkedIn",
+  secondaryCtaHref: "https://www.linkedin.com/in/abdullah-mern/",
   palette: {
     primary: "#F15BB5",
     secondary: "#4361EE",

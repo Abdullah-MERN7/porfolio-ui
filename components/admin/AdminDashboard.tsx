@@ -1030,7 +1030,7 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
             value={form.secondaryLabel}
             onChange={(event) => setForm((prev) => ({ ...prev, secondaryLabel: event.target.value }))}
             className={inputClasses}
-            placeholder="Contact Me"
+            placeholder="LinkedIn"
             disabled={busy}
           />
         </label>
@@ -1040,7 +1040,7 @@ function HeroPanel({ content, onSave, busy }: HeroPanelProps) {
             value={form.secondaryHref}
             onChange={(event) => setForm((prev) => ({ ...prev, secondaryHref: event.target.value }))}
             className={inputClasses}
-            placeholder="#contact"
+            placeholder="https://www.linkedin.com/in/abdullah-mern/"
             disabled={busy}
           />
         </label>
@@ -2396,7 +2396,6 @@ function formatTimestamp(value: string) {
     minute: "2-digit",
   });
 }
-
 
 
 

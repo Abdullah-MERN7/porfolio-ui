@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       "Crafting responsive, secure web & mobile apps with React.js, Node.js, Next.js.",
     url: siteUrl,
     siteName: "Abdullah MERN Portfolio",
-    locale: "en_US",
+    locale: "en_US", 
     type: "website",
     images: [
       {

@@ -28,6 +28,25 @@ import type {
   Project,
   Skill,
 } from "@/src/types/portfolio";
+
+async function loadWithFallback<T>(
+  label: string,
+  request: Promise<T>,
+  fallback: T
+): Promise<T> {
+  try {
+    return await request;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const safeMessage = message.replace(
+      /mongodb(?:\+srv)?:\/\/[^\s]+/gi,
+      "[redacted MongoDB URI]"
+    );
+    console.error(`Failed to load ${label} from the database: ${safeMessage}`);
+    return fallback;
+  }
+}
+
 export default async function Home() {
   const [
     skills,
@@ -38,13 +57,13 @@ export default async function Home() {
     aboutContent,
     features,
   ] = await Promise.all([
-    getSkills().catch(() => []),
-    getProjects().catch(() => []),
-    getExperience().catch(() => []),
-    getCertifications().catch(() => []),
-    getHeroContent().catch(() => HERO_CONTENT_FALLBACK),
-    getAboutContent().catch(() => ABOUT_CONTENT_FALLBACK),
-    getFeatures().catch(() => FEATURES_FALLBACK),
+    loadWithFallback("skills", getSkills(), []),
+    loadWithFallback("projects", getProjects(), []),
+    loadWithFallback("experience", getExperience(), []),
+    loadWithFallback("certifications", getCertifications(), []),
+    loadWithFallback("hero content", getHeroContent(), HERO_CONTENT_FALLBACK),
+    loadWithFallback("about content", getAboutContent(), ABOUT_CONTENT_FALLBACK),
+    loadWithFallback("features", getFeatures(), FEATURES_FALLBACK),
   ]);
 
   return (
@@ -93,7 +112,6 @@ async function safeFetch<T>(path: string, fallback: T): Promise<T> {
     return fallback;
   }
 }
-
 
 
 
